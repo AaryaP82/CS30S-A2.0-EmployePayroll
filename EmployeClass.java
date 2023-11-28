@@ -156,7 +156,7 @@ public class EmployeClass {
     // *** Override methods ***
     boolean equals(EmployeClass other){
         boolean equal;
-        equal = hours == other.getHours() && wage == other.getWage();
+        equal = this.grossPay() == other.grossPay();
         return equal;
     }//end equals
     
