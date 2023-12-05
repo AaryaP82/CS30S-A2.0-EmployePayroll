@@ -35,7 +35,7 @@ public class ClientCode {
         // ***** objects *****
         ProgramInfo pInfo = new ProgramInfo("A2.0 EmployePayroll");
         //Scanner scanner = new Scanner(System.in);
-        //NumberFormat currency = NumberFormat.getCurrencyInstance();
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
 
         // file io buffers for reading and writing to text files
 
@@ -49,48 +49,51 @@ public class ClientCode {
 
         // ***** Main Processing *****
         //create employe objects
-        EmployeClass employe1 = new EmployeClass(15.00, 34);
-        EmployeClass employe2 = new EmployeClass(14.00, 42);
-        EmployeClass employe3 = new EmployeClass(14.00, 50);
+        EmployeClass employe1 = new EmployeClass(15.00, 0);
+        EmployeClass employe2 = new EmployeClass(14.00, 0);
+        EmployeClass employe3 = new EmployeClass(14.00, 0);
         
         //using getters and setters
+        
         //employe 1
         //hours
         System.out.println(employe1.getHours());
-        int employe1hours = employe1.getHours();
+        employe1.sethours(34);
         //wage
-        System.out.println(employe1.getWage());
+        System.out.format("%8s",employe1.getWage());
         double employe1wage = employe1.getWage();
         
         //employe 2 
         System.out.println(employe2.getHours());
-        int employe2hours = employe2.getHours();
+        employe2.sethours(42);
         //wage
-        System.out.println(employe2.getWage());
+        System.out.format("%8s",employe2.getWage());
         double employe2wage = employe2.getWage();
         
         //employe 3
         System.out.println(employe2.getHours());
-        int employe3hours = employe2.getHours();
+        employe3.sethours(42);
         //wage
-        System.out.println(employe3.getWage());
+        System.out.format("%8s",employe3.getWage());
         double employe3wage = employe3.getWage();
         
         // ***** test utility methods *****
         //get regPay
-        System.out.println(employe1.regPay());
-        System.out.println(employe2.regPay());
-        System.out.println(employe3.regPay());
+        System.out.format("%8s",employe1.regPay(), nl);
+        System.out.format("%8s",employe2.regPay(), nl);
+        System.out.format("%8s",employe3.regPay(), nl);
         
         //get otPay
-        System.out.println(employe1.ovPay());
-        System.out.println(employe2.ovPay());
-        System.out.println(employe3.ovPay());
+        System.out.format(currency.format(employe1.ovPay()), nl);
+        System.out.format(currency.format(employe2.ovPay()), nl);
+        System.out.format(currency.format(employe3.ovPay()), nl);
         
         //get grossPay
-        System.out.println(employe1.grossPay());
-        System.out.println(employe2.grossPay());
-        System.out.println(employe3.grossPay());
+        System.out.format(currency.format(employe1.grossPay()), nl);
+        System.out.format(currency.format(employe2.grossPay()), nl);
+        System.out.format(currency.format(employe3.grossPay()), nl);
+        
+        //boolean equalEmployes = employe1.grossPay().equals(employe2.grossPay());
         
         
         // use String()

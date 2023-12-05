@@ -124,7 +124,12 @@ public class EmployeClass {
     * @return       regPay : double
     * ****************************************/
     public double regPay(){
-        return this.hours * this.wage;
+        if(this.hours > MAXHOURS){
+            return (this.hours * this.wage) - (this.wage * OVERTIMEPAY * (this.hours - MAXHOURS));
+        }//end if over max hours
+        else{
+            return this.hours * this.wage;
+        }//end if under max hours
     }//end regPay
     
     //get otPay
@@ -135,7 +140,7 @@ public class EmployeClass {
     * ****************************************/
     public double ovPay(){
         if(this.hours > MAXHOURS){
-            return this.wage * OVERTIMEPAY * this.hours - MAXHOURS;
+            return this.wage * OVERTIMEPAY * (this.hours - MAXHOURS);
         }//end if overtime
         else{
             return 0;
@@ -165,11 +170,11 @@ public class EmployeClass {
         String st;
         
         st = "Employe ID: " + this.getID() + nl;
-        st += "Wage: " + this.getWage() + nl;
+        st += "Wage: $" + this.getWage() + nl;
         st += "Hours Worked: " + this.getHours() + nl;
-        st += "Regular Pay: " + this.regPay() + nl;
-        st += "Overtime Pay: " + this.ovPay() + nl;
-        st += "Gross Pay: " + this.grossPay() + nl;
+        st += "Regular Pay: $" + this.regPay() + nl;
+        st += "Overtime Pay: $" + this.ovPay() + nl;
+        st += "Gross Pay: $" + this.grossPay() + nl;
         
         return st;
     }//end to string
