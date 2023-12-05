@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 /********************************************************************
  * Programmer:    Aarya
  * Class:  CS30S
@@ -11,6 +12,9 @@
 
 public class EmployeClass {
     //*** Class Variables ***
+    
+    //currency format
+    NumberFormat currency = NumberFormat.getCurrencyInstance();
     
     // a new line character that works on every computer system
     final static String nl = System.lineSeparator();
@@ -170,11 +174,11 @@ public class EmployeClass {
         String st;
         
         st = "Employe ID: " + this.getID() + nl;
-        st += "Wage: $" + this.getWage() + nl;
+        st += "Wage: " + currency.format(this.getWage()) + nl;
         st += "Hours Worked: " + this.getHours() + nl;
-        st += "Regular Pay: $" + this.regPay() + nl;
-        st += "Overtime Pay: $" + this.ovPay() + nl;
-        st += "Gross Pay: $" + this.grossPay() + nl;
+        st += "Regular Pay: " + currency.format(this.regPay()) + nl;
+        st += "Overtime Pay: " + currency.format(this.ovPay()) + nl;
+        st += "Gross Pay: " + currency.format(this.grossPay()) + nl;
         
         return st;
     }//end to string
